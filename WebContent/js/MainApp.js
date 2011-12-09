@@ -1,6 +1,13 @@
 $(document).ready(function(){
 	
 	
+	$('#pictures img').click(function(event) {
+		
+		videoPicked($(event.target).attr('alt'));
+		
+		  //alert('Handler for .click() called of div: ' + $(event.target).attr('alt'));
+		});
+	
 	
 });
 
@@ -25,3 +32,23 @@ $(document).ready(function(){
 	  });    
 	};
 });
+
+
+function videoPicked(name)
+{
+	
+	$('#fullscreenvideo').html('<video src="' + name + '.ogv"></video>');
+	$('#fullscreenvideo').css('display', 'normal');
+	$('#darkroom').prepend('<img src="' + name + '.jpg"/>');
+	
+	$('#fullscreenvideo video').bind("ended", function(){
+		$('#fullscreenvideo').css('display', 'none');
+	      alert('Video Ended'); 
+	    });
+	
+	
+	
+	//alert(name);
+	
+	
+}
