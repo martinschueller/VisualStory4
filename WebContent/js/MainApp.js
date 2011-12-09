@@ -37,18 +37,29 @@ $(document).ready(function(){
 function videoPicked(name)
 {
 	
-	$('#fullscreenvideo').html('<video src="' + name + '.ogv"></video>');
+	$('#fullscreenvideo').html('<video src="videos/' + name + '.ogv"></video>');
 	$('#fullscreenvideo').css('display', 'normal');
-	$('#darkroom').prepend('<img src="' + name + '.jpg"/>');
-	
+	$('#darkroom').prepend('<img src="images/' + name + '.jpg"/>');
+	$('#fullscreenvideo video').get(0).play();
 	$('#fullscreenvideo video').bind("ended", function(){
 		$('#fullscreenvideo').css('display', 'none');
-	      alert('Video Ended'); 
+	      alert('Video Ended');
+	      
+	      if ($('#darkroom').length = 5){
+	    	  playOutro();
+	    	  
+	      }
+	      
 	    });
 	
-	
-	
 	//alert(name);
-	
+}
+
+
+
+
+function playOutro()
+{
 	
 }
+
