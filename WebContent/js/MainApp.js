@@ -63,3 +63,9 @@ function playOutro()
 	
 }
 
+
+
+function flip() {
+	document.getElementById("side1").style.visibility="hidden";
+	document.getElementById("side2").style.visibility="visible";
+}

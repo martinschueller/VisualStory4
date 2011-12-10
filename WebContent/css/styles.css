@@ -1,7 +1,27 @@
 body
 {
-	
-	
+	background-color: #000;
+}
+
+#darkroom {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 1024px;
+	height: 680px;
+	background-image: url(../images/darkroom.png);
+	background-repeat: no-repeat;
+	background-attachment: fixed;	
+}
+
+#lightbox {
+	position: absolute;
+	top: 680px;
+	left: 0px;
+	width: 1024px;
+	height: 403px;
+	background-image: url(../images/lightbox.png);	
+	background-repeat: no-repeat;
 }
 
 #fullscreenvideo

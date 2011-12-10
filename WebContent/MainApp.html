@@ -2,6 +2,8 @@
 <html>
 <head>
 
+<link rel="stylesheet" href="css/styles.css" type="text/css" />
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script src="js/MainApp.js"></script>   
 
@@ -10,24 +12,24 @@
 
 
 <div id="darkroom">
+<div id="hangingpicture1">
+	<div id="side1" style="position:fixed; top:60px; left:20px; -moz-transform: rotate(5deg);" onMouseOver="flip()">
+		<img src="images/front.png" width="50%" height="50%">
+	</div>
+	<div id="side2" style="position:fixed; top:60px; left:20px; -moz-transform: rotate(5deg); visibility:hidden;" >
+		<img src="images/back.png" width="50%" height="50%">
+	</div>
+</div>
+
 
 </div>
 
 
 
-<div class="contactsheet">
-<ul id="pictures">
-<li><img src="images/1.jpg" alt="image1"></img></li>
-<li><img src="images/1.jpg"></img></li>
-<li><img src="images/1.jpg"></img></li>
-<li><img src="images/1.jpg"></img></li>
-<li><img src="images/1.jpg"></img></li>
-<li><img src="images/1.jpg"></img></li>
-<li><img src="images/1.jpg"></img></li>
-<li><img src="images/1.jpg"></img></li>
-<li><img src="images/1.jpg"></img></li>
-<li><img src="images/1.jpg"></img></li>
-</ul>
+<div id="lightbox" class="contactsheet">
+<div id="pic0" style="position:absolute; top:37px; left:27px; -moz-transform: rotate(3deg);">
+	<img src="images/2.jpg">
+</div>
 </div>
 
 
