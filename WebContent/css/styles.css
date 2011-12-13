@@ -9,7 +9,7 @@ body
 	left: 0px;
 	width: 1024px;
 	height: 680px;
-	background-image: url(../images/darkroom.png);
+	background-image: url(../images/bg.png);
 	background-repeat: no-repeat;
 	background-attachment: fixed;	
 }
@@ -20,7 +20,7 @@ body
 	left: 0px;
 	width: 1024px;
 	height: 403px;
-	background-image: url(../images/lightbox.png);	
+	background-image: url(../images/contactsheet.png);	
 	background-repeat: no-repeat;
 }
 
