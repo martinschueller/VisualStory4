@@ -1,12 +1,37 @@
 $(document).ready(function(){
 	
+	var columns = 5;
+	var columnHeight = 200;
+	var columnWidth = 280;
+	var currentColumn = 0;
 	
-	$('#pictures img').click(function(event) {
+	$('.picture img').click(function(event) {
 		
-		videoPicked($(event.target).attr('alt'));
+		videoPicked($(event.target).attr('id'));
 		
 		  //alert('Handler for .click() called of div: ' + $(event.target).attr('alt'));
 		});
+	
+	
+	
+	
+	var yPos = 0;
+	//alert($('.picture').length);
+	for (var i=0 ; i< $('.picture').length; i++){
+		if (currentColumn == columns){
+			yPos += columnHeight;
+			currentColumn = 0;
+		}
+		
+		
+		$('.picture:eq(' + i + ')').css('left', columnWidth * currentColumn);
+		$('.picture:eq(' + i + ')').css('top', yPos);
+		currentColumn += 1;
+			
+		
+		
+	}
+	
 	
 	
 });
