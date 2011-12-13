@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+
+<link rel="stylesheet" href="css/styles.css" type="text/css" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="js/MainApp.js"></script>   
+
+<style>
+@-webkit-keyframes sway {
+	0% {
+		-webkit-transform:rotate(-90deg);
+	}
+	25% {
+		-webkit-transform:rotate(-86deg);		
+	}
+	50% {
+		-webkit-transform:rotate(-92deg);		
+	}
+	75% {
+		-webkit-transform:rotate(-88deg);		
+	}
+	100% {
+		-webkit-transform:rotate(-90deg);		
+	}
+}
+@-moz-keyframes sway {
+	0% {
+		-moz-transform:rotate(-90deg);
+	}
+	25% {
+		-moz-transform:rotate(-86deg);		
+	}
+	50% {
+		-moz-transform:rotate(-92deg);		
+	}
+	75% {
+		-moz-transform:rotate(-88deg);		
+	}
+	100% {
+		-moz-transform:rotate(-90deg);		
+	}
+}
+@-ms-keyframes sway {
+	0% {
+		-ms-transform:rotate(-90deg);
+	}
+	25% {
+		-ms-transform:rotate(-86deg);		
+	}
+	50% {
+		-ms-transform:rotate(-92deg);		
+	}
+	75% {
+		-ms-transform:rotate(-88deg);		
+	}
+	100% {
+		-ms-transform:rotate(-90deg);		
+	}
+}
+
+#hangingpicture1:hover #side1, #hangingpicture1.hover_effect #side1, #side1:hover {
+	-webkit-animation-name: sway;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-direction: alternate;	
+	
+	-moz-animation-name: sway;
+	-moz-animation-duration: 2s;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: ease-out;
+	
+	-ms-animation-name: sway;
+	-ms-animation-duration: 4s;
+	-ms-animation-iteration-count: 1;
+	-ms-animation-direction: alternate;	
+}
+
+
+</style>
+
+</head>
+<body>
+
+
+<div id="darkroom">
+<div id="hangingpicture1" class="hover">
+	<div id="side1" style="position:fixed; top:-80px; left:-20px; -moz-transform:rotate(-90deg);">
+		<img src="images/front.png" width="44%" height="44%">
+	</div>
+</div>
+
+
+</div>
+
+
+
+<div id="lightbox" class="contactsheet">
+<div id="pic0" style="position:absolute; top:37px; left:27px; -moz-transform: rotate(3deg);">
+	<img src="images/2.jpg">
+</div>
+<div id="pic1" style="position:absolute; top:48px; left:224px; -moz-transform: rotate(3deg);">
+	<img src="images/2.jpg">
+</div>
+<div id="pic2" style="position:absolute; top:59px; left:421px; -moz-transform: rotate(3deg);">
+	<img src="images/2.jpg">
+</div>
+<div id="pic3" style="position:absolute; top:69px; left:618px; -moz-transform: rotate(3deg);">
+	<img src="images/2.jpg">
+</div>
+<div id="pic4" style="position:absolute; top:80px; left:815px; -moz-transform: rotate(3deg);">
+	<img src="images/2.jpg">
+</div>
+
+<div id="pic5" style="position:absolute; top:256px; left:25px; -moz-transform: rotate(-1.5deg);">
+	<img src="images/2.jpg">
+</div>
+<div id="pic6" style="position:absolute; top:252px; left:223px; -moz-transform: rotate(-1.5deg);">
+	<img src="images/2.jpg">
+</div>
+<div id="pic7" style="position:absolute; top:247px; left:421px; -moz-transform: rotate(-1.5deg);">
+	<img src="images/2.jpg">
+</div>
+<div id="pic8" style="position:absolute; top:243px; left:619px; -moz-transform: rotate(-1.5deg);">
+	<img src="images/2.jpg">
+</div>
+<div id="pic9" style="position:absolute; top:238px; left:816px; -moz-transform: rotate(-1.5deg);">
+	<img src="images/2.jpg">
+</div>
+</div>
+
+
+
+<div id="fullscreenvideo">
+
+</div>
+
+</body>
+</html>
