@@ -62,19 +62,25 @@ function videoPicked(name)
 {
 	//CHANGES
 	var imglength = $("div#darkroom img").length;
+	//if( imglength > 0 ) {
+	//	document.getElementById('sound' + (imglength-1) ).pause();
+	//}
+	for( var i = 0; i < imglength; i++ ) {
+		document.getElementById('sound' + i).pause();	
+	}
 	//END CHANGES
 	$('#fullscreenvideo').html('<video src="videos/' + name + '.ogv"></video>');
 	$('#fullscreenvideo').css('display', 'normal');
 	// changes made HERE
 	if( imglength < 5 ) {
-		$('#darkroom').prepend('<img src="images/' + name + '.png"/>');
-		$('#darkroom').prepend('<audio id="sound' + imglength + '" preload onended="audioEnd(' + imglength + ')"><source src="sounds/' + name + '.ogg" type="audio/ogg"><source src="sounds/' + name + '.mp3" type="audio/mp3"></audio>');
+		$('#darkroom').append('<img src="images/' + name + '.png"/>');
+		$('#darkroom').append('<audio id="sound' + imglength + '" autoplay preload onended="audioEnd(' + imglength + ')"><source src="sounds/' + name + '.ogg" type="audio/ogg"><source src="sounds/' + name + '.mp3" type="audio/mp3"></audio>');
 	}//END CHANGES
 	$('#fullscreenvideo video').get(0).play();
 	$('#fullscreenvideo video').bind("ended", function(){
 		$('#fullscreenvideo').css('display', 'none');
 	      alert('Video Ended');
-	      document.getElementById('sound' + imglength).play();
+	      //document.getElementById('sound' + imglength).play();
 	      if ($('#darkroom').length = 5){
 	    	  playOutro();
 	    	  
@@ -98,8 +104,9 @@ function audioEnd( name ) {
 	else if( name < imglength-1 ) {
 		nextSound = document.getElementById('sound' + ( parseInt(name) + 1 ) );	
 	}
-	document.getElementById('soundchord').play();
-	setTimeout(function(){nextSound.play();},3000);
+//	document.getElementById('soundchord').play();
+//	setTimeout(function(){nextSound.play();},3000);
+	nextSound.play();
 	
 }
 //END CHANGES
