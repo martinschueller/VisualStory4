@@ -27,10 +27,17 @@ body
 #fullscreenvideo
 {
 	display:none;
-	width: 100%;
-	height: 100%;
-	postition: absolute;
+	postition: fixed;
 	left:0px;
 	top:0px;
+	z-index:100;
+	
+}
+
+#fullscreenvideo video
+{
+	width: 1440px;
+	height: auto;
+	
 	
 }

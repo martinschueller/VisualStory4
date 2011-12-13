@@ -11,6 +11,13 @@ $(document).ready(function(){
 		
 		  //alert('Handler for .click() called of div: ' + $(event.target).attr('alt'));
 		});
+	$('.picture img').mouseover(function(event) {
+		
+		
+		videoFlash($(event.target).attr('id'));
+		
+	});
+	
 	
 	
 	
@@ -62,7 +69,7 @@ $(document).ready(function(){
 function videoPicked(name)
 {
 	
-	$('#fullscreenvideo').html('<video src="videos/' + name + '.ogv"></video>');
+	$('#fullscreenvideo').html('<video src="videos/' + name + '.mp4"></video>');
 	$('#fullscreenvideo').css('display', 'normal');
 	$('#darkroom').prepend('<img src="images/' + name + '.jpg"/>');
 	$('#fullscreenvideo video').get(0).play();
@@ -80,7 +87,29 @@ function videoPicked(name)
 	//alert(name);
 }
 
+function videoFlash(name)
 
+{
+	//$('#fullscreenvideo').css('opacity', '0');
+	$('#fullscreenvideo').html('<video src="videos/' + name + '.mp4"></video>');
+	$('#fullscreenvideo').css('display', 'normal');
+	$('#fullscreenvideo video').get(0).play(100);
+	$('#fullscreenvideo video').attr('muted', true);
+	$('#fullscreenvideo').animate({
+	    opacity: 'toggle'
+	  }, 500, 'linear', function() {
+		  
+		  $('#fullscreenvideo').animate({
+			    opacity: 'toggle'
+			  }, 500, 'linear', function() {
+				  
+				  
+				  $('#fullscreenvideo video').get(0).pause();
+				  $('#fullscreenvideo').html('');
+			  });
+		  
+	  });
+}
 
 
 function playOutro()
