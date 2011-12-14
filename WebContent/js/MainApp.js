@@ -5,6 +5,36 @@ $(document).ready(function(){
 	var columnWidth = 280;
 	var currentColumn = 0;
 	var xOffset = 50;
+	var scrolledDown = false;
+	window.scrollBy(0,-550);
+	playIntro();
+	scrolldelay = setTimeout('pageScroll()',100); // scrolls every 100 milliseconds
+	
+	document.addEventListener('mousewheel', function(e){
+		e.stopPropagation();
+		e.preventDefault();
+		e.cancelBubble = false;
+		return false;
+		}, false);
+	
+	
+	$('#lightbox').click(function() {
+		if (this.scrolledDown){
+			
+		
+		window.scrollBy(0,-550);
+		scrolldelay = setTimeout('pageScroll()',100); // scrolls every 100 milliseconds
+		this.scrolledDown = false;
+		}
+		
+		else
+			{
+			window.scrollBy(0,550);
+			scrolldelay = setTimeout('pageScroll()',100); // scrolls every 100 milliseconds
+			this.scrolledDown = true;
+			
+			}
+	});
 	
 	$('.picture img').click(function(event) {
 		
@@ -62,7 +92,7 @@ $(document).ready(function(){
 function videoPicked(name)
 {
 	//CHANGES
-	
+	window.scrollBy(0,-550);
 	$('#fullscreenvideo').css('display', 'block');
 	var imglength = $("div#darkroom img").length;
 	//if( imglength > 0 ) {
@@ -115,6 +145,22 @@ function audioEnd( name ) {
 	
 }
 //END CHANGES
+
+function playIntro(){
+	$('#fullscreenvideo').css('display', 'block');
+	$('#fullscreenvideo').html('<video src="videos/Intro.mp4"></video>');
+	$('#fullscreenvideo video').css('width', $(window).width() + 'px');
+	$('#fullscreenvideo video').css('height', 'auto');
+	$('#fullscreenvideo video').get(0).play();
+	$('#fullscreenvideo video').bind("ended", function(){
+		$('#fullscreenvideo').css('display', 'none');
+	      //alert('Video Ended');
+		$('#fullscreenvideo').html('');
+	      
+	    });
+	
+}
+
 
 function playOutro()
 {
