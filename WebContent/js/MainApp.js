@@ -85,7 +85,7 @@ function videoPicked(name)
 		$('#fullscreenvideo').css('display', 'none');
 	      //alert('Video Ended');
 	      document.getElementById('sound' + imglength).play();
-	      if ($('#darkroom').length = 5){
+	      if ($('#darkroom img').length == 5){
 	    	  playOutro();
 	    	  
 	      }
@@ -110,6 +110,7 @@ function audioEnd( name ) {
 	}
 //	document.getElementById('soundchord').play();
 //	setTimeout(function(){nextSound.play();},3000);
+	nextSound.currentTime = 0;
 	nextSound.play();
 	
 }
