@@ -1,9 +1,10 @@
 $(document).ready(function(){
 	
 	var columns = 5;
-	var columnHeight = 200;
+	var columnHeight = 250;
 	var columnWidth = 280;
 	var currentColumn = 0;
+	var xOffset = 50;
 	
 	$('.picture img').click(function(event) {
 		
@@ -15,7 +16,7 @@ $(document).ready(function(){
 	
 	
 	
-	var yPos = 0;
+	var yPos = 150;
 	//alert($('.picture').length);
 	for (var i=0 ; i< $('.picture').length; i++){
 		if (currentColumn == columns){
@@ -24,7 +25,7 @@ $(document).ready(function(){
 		}
 		
 		
-		$('.picture:eq(' + i + ')').css('left', columnWidth * currentColumn);
+		$('.picture:eq(' + i + ')').css('left', xOffset + columnWidth * currentColumn);
 		$('.picture:eq(' + i + ')').css('top', yPos);
 		currentColumn += 1;
 			
@@ -61,6 +62,8 @@ $(document).ready(function(){
 function videoPicked(name)
 {
 	//CHANGES
+	
+	$('#fullscreenvideo').css('display', 'normal');
 	var imglength = $("div#darkroom img").length;
 	//if( imglength > 0 ) {
 	//	document.getElementById('sound' + (imglength-1) ).pause();
@@ -69,8 +72,8 @@ function videoPicked(name)
 		document.getElementById('sound' + i).pause();	
 	}
 	//END CHANGES
-	$('#fullscreenvideo').html('<video src="videos/' + name + '.ogv"></video>');
-	$('#fullscreenvideo').css('display', 'normal');
+	$('#fullscreenvideo').html('<video src="videos/' + name + '.mp4"></video>');
+	
 	// changes made HERE
 	if( imglength < 5 ) {
 		$('#darkroom').append('<img src="images/' + name + '.png"/>');

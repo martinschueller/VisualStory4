@@ -26,18 +26,13 @@ body
 
 #fullscreenvideo
 {
-	display:none;
+	
 	postition: fixed;
 	left:0px;
 	top:0px;
-	z-index:100;
+	z-index:90;
+	height: 100px;
+	width: auto;
 	
 }
 
-#fullscreenvideo video
-{
-	width: 1440px;
-	height: auto;
-	
-	
-}

@@ -11,12 +11,12 @@ $(document).ready(function(){
 		
 		  //alert('Handler for .click() called of div: ' + $(event.target).attr('alt'));
 		});
-	$('.picture img').mouseover(function(event) {
+	/*$('.picture img').mouseover(function(event) {
 		
 		
 		videoFlash($(event.target).attr('id'));
 		
-	});
+	});*/
 	
 	
 	
@@ -71,12 +71,17 @@ function videoPicked(name)
 	
 	$('#fullscreenvideo').html('<video src="videos/' + name + '.mp4"></video>');
 	$('#fullscreenvideo').css('display', 'normal');
+	//$('#fullscreenvideo').css('opacity', '1');
+	
+	//$('#fullscreenvideo video').css('width', $(window).width() + 'px');
+	//$('#fullscreenvideo video').css('height', 'auto');
 	$('#darkroom').prepend('<img src="images/' + name + '.jpg"/>');
-	$('#fullscreenvideo video').get(0).play();
+	$('#fullscreenvideo video').get(0).play(0);
+	
 	$('#fullscreenvideo video').bind("ended", function(){
-		$('#fullscreenvideo').css('display', 'none');
-	      alert('Video Ended');
-	      
+		//$('#fullscreenvideo').css('display', 'none');
+	      //alert('Video Ended');
+	      $('#fullscreenvideo').html('');
 	      if ($('#darkroom').length = 5){
 	    	  playOutro();
 	    	  
@@ -93,6 +98,9 @@ function videoFlash(name)
 	//$('#fullscreenvideo').css('opacity', '0');
 	$('#fullscreenvideo').html('<video src="videos/' + name + '.mp4"></video>');
 	$('#fullscreenvideo').css('display', 'normal');
+	
+	$('#fullscreenvideo video').css('height', $(window).height() + 'px');
+	
 	$('#fullscreenvideo video').get(0).play(100);
 	$('#fullscreenvideo video').attr('muted', true);
 	$('#fullscreenvideo').animate({
