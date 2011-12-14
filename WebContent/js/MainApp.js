@@ -9,7 +9,7 @@ $(document).ready(
 			var scrolledDown = false;
 			
 			pageScroll(true);
-			// playIntro();
+			playIntro();
 			// scrolldelay = setTimeout('pageScroll()',100); // scrolls every
 			// 100 milliseconds
 
@@ -88,7 +88,7 @@ function pageScroll(negative) {
 	if (negative) {
 		window.scrollBy(0, -50);
 		if (window.scrollY > 0) {
-			scrolldelay = setTimeout('pageScroll(true)', 5); // scrolls every
+			scrolldelay = setTimeout('pageScroll(true)', 10); // scrolls every
 																// 100
 																// milliseconds
 		}
@@ -96,9 +96,10 @@ function pageScroll(negative) {
 
 	else {
 		window.scrollBy(0, 50);
-		if (window.scrollY < 540) {
-			scrolldelay = setTimeout('pageScroll(false)', 5); // scrolls every
-																// 100
+		if (window.scrollY < 515) {
+			//alert('scrollY: ' + window.scrollY );
+			scrolldelay = setTimeout('pageScroll(false)', 10); // scrolls every
+			// 100
 																// milliseconds
 		}
 	}
