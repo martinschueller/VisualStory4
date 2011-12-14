@@ -1,9 +1,10 @@
 $(document).ready(function(){
 	
 	var columns = 5;
-	var columnHeight = 200;
+	var columnHeight = 250;
 	var columnWidth = 280;
 	var currentColumn = 0;
+	var xOffset = 50;
 	
 	$('.picture img').click(function(event) {
 		
@@ -11,18 +12,11 @@ $(document).ready(function(){
 		
 		  //alert('Handler for .click() called of div: ' + $(event.target).attr('alt'));
 		});
-	/*$('.picture img').mouseover(function(event) {
-		
-		
-		videoFlash($(event.target).attr('id'));
-		
-	});*/
 	
 	
 	
 	
-	
-	var yPos = 0;
+	var yPos = 150;
 	//alert($('.picture').length);
 	for (var i=0 ; i< $('.picture').length; i++){
 		if (currentColumn == columns){
@@ -31,7 +25,7 @@ $(document).ready(function(){
 		}
 		
 		
-		$('.picture:eq(' + i + ')').css('left', columnWidth * currentColumn);
+		$('.picture:eq(' + i + ')').css('left', xOffset + columnWidth * currentColumn);
 		$('.picture:eq(' + i + ')').css('top', yPos);
 		currentColumn += 1;
 			
@@ -65,23 +59,32 @@ $(document).ready(function(){
 	};
 });
 
-
 function videoPicked(name)
 {
+	//CHANGES
 	
+	$('#fullscreenvideo').css('display', 'block');
+	var imglength = $("div#darkroom img").length;
+	//if( imglength > 0 ) {
+	//	document.getElementById('sound' + (imglength-1) ).pause();
+	//}
+	for( var i = 0; i < imglength; i++ ) {
+		document.getElementById('sound' + i).pause();	
+	}
+	//END CHANGES
 	$('#fullscreenvideo').html('<video src="videos/' + name + '.mp4"></video>');
-	$('#fullscreenvideo').css('display', 'normal');
-	//$('#fullscreenvideo').css('opacity', '1');
-	
-	//$('#fullscreenvideo video').css('width', $(window).width() + 'px');
-	//$('#fullscreenvideo video').css('height', 'auto');
-	$('#darkroom').prepend('<img src="images/' + name + '.jpg"/>');
-	$('#fullscreenvideo video').get(0).play(0);
-	
+	$('#fullscreenvideo video').css('width', $(window).width() + 'px');
+	$('#fullscreenvideo video').css('height', 'auto');
+	// changes made HERE
+	if( imglength < 5 ) {
+		$('#darkroom').append('<img src="images/' + name + '.png"/>');
+		$('#darkroom').append('<audio id="sound' + imglength + '" preload onended="audioEnd(' + imglength + ')"><source src="sounds/' + name + '.ogg" type="audio/ogg"><source src="sounds/' + name + '.mp3" type="audio/mp3"></audio>');
+	}//END CHANGES
+	$('#fullscreenvideo video').get(0).play();
 	$('#fullscreenvideo video').bind("ended", function(){
-		//$('#fullscreenvideo').css('display', 'none');
+		$('#fullscreenvideo').css('display', 'none');
 	      //alert('Video Ended');
-	      $('#fullscreenvideo').html('');
+	      document.getElementById('sound' + imglength).play();
 	      if ($('#darkroom').length = 5){
 	    	  playOutro();
 	    	  
@@ -92,42 +95,27 @@ function videoPicked(name)
 	//alert(name);
 }
 
-function videoFlash(name)
+//MORE CHANGES HERE
+function audioEnd( name ) {
 
-{
-	//$('#fullscreenvideo').css('opacity', '0');
-	$('#fullscreenvideo').html('<video src="videos/' + name + '.mp4"></video>');
-	$('#fullscreenvideo').css('display', 'normal');
+	var nextSound;
+	var mp3Chord = document.getElementById('mp3chord');
+	var oggChord = document.getElementById('oggchord');	
+	var imglength = $("div#darkroom img").length; 
+	if( name >= imglength-1 ) {
+		nextSound = document.getElementById('sound0');	
+	}
+	else if( name < imglength-1 ) {
+		nextSound = document.getElementById('sound' + ( parseInt(name) + 1 ) );	
+	}
+//	document.getElementById('soundchord').play();
+//	setTimeout(function(){nextSound.play();},3000);
+	nextSound.play();
 	
-	$('#fullscreenvideo video').css('height', $(window).height() + 'px');
-	
-	$('#fullscreenvideo video').get(0).play(100);
-	$('#fullscreenvideo video').attr('muted', true);
-	$('#fullscreenvideo').animate({
-	    opacity: 'toggle'
-	  }, 500, 'linear', function() {
-		  
-		  $('#fullscreenvideo').animate({
-			    opacity: 'toggle'
-			  }, 500, 'linear', function() {
-				  
-				  
-				  $('#fullscreenvideo video').get(0).pause();
-				  $('#fullscreenvideo').html('');
-			  });
-		  
-	  });
 }
-
+//END CHANGES
 
 function playOutro()
 {
 	
-}
-
-
-
-function flip() {
-	document.getElementById("side1").style.visibility="hidden";
-	document.getElementById("side2").style.visibility="visible";
 }
