@@ -63,7 +63,7 @@ function videoPicked(name)
 {
 	//CHANGES
 	
-	$('#fullscreenvideo').css('display', 'normal');
+	$('#fullscreenvideo').css('display', 'block');
 	var imglength = $("div#darkroom img").length;
 	//if( imglength > 0 ) {
 	//	document.getElementById('sound' + (imglength-1) ).pause();
@@ -73,7 +73,8 @@ function videoPicked(name)
 	}
 	//END CHANGES
 	$('#fullscreenvideo').html('<video src="videos/' + name + '.mp4"></video>');
-	
+	$('#fullscreenvideo video').css('width', $(window).width() + 'px');
+	$('#fullscreenvideo video').css('height', 'auto');
 	// changes made HERE
 	if( imglength < 5 ) {
 		$('#darkroom').append('<img src="images/' + name + '.png"/>');
